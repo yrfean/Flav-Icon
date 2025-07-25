@@ -213,54 +213,67 @@ const FlappyBird = () => {
   }, [started, gameId]);
 
   return (
-    <div className="bg-[url('/bg.png')] flex justify-center items-center h-screen">
-      {!started ? (
-        <div className="text-center">
-          <p className="fixed top-10 left-10 flex items-center gap-2 px-4 py-2 bg-black/20 border border-yellow-400 text-yellow-300 text-lg rounded-xl shadow-md backdrop-blur-sm">
-            🏆 Highscore:{" "}
-            <span className="font-bold text-yellow-200">{highScore}</span>
-          </p>
-          <h1 className="text-3xl font-bold mb-4">Welcome to Flav-icon</h1>
-          <img
-            src="/bird.png"
-            alt="Bird Icon"
-            className="mx-auto mb-2 w-16 h-16"
-          />
-          <p className="text-white mt-3 w-132 font-semibold text-center tracking-wide leading-snug text-xl">
-            🐣 Flappy Favicon?! <br /> Yup, you're about to play Flappy Bird... in the
-            tab icon. No full screen. No fancy graphics. Just pure chaos in
-            32×32 pixels. Hit Spacebar to flap. Look up — that tiny bird’s
-            counting on you. 😵‍💫 🟢 Start if you dare.
-          </p>
-          <i className="text-yellow-100 block tracking-wider opacity-90 mt-5 animate-pulse">
-            ~Press space key to start!
-          </i>
-        </div>
-      ) : (
-        <div className="text-center text-white">
-          <canvas
-            ref={faviconCanvasRef}
-            width={32}
-            height={32}
-            style={{ display: "none" }}
-          />
+    <>
+      <div className="bg-[url('/bg.png')] flex justify-center items-center h-screen">
+        {!started ? (
+          <div className="text-center">
+            <p className="fixed top-10 left-10 flex items-center gap-2 px-4 py-2 bg-black/20 border border-yellow-400 text-yellow-300 text-lg rounded-xl shadow-md backdrop-blur-sm">
+              🏆 Highscore:{" "}
+              <span className="font-bold text-yellow-200">{highScore}</span>
+            </p>
+            <h1 className="text-3xl font-bold mb-4">Welcome to Flav-icon</h1>
+            <img
+              src="/bird.png"
+              alt="Bird Icon"
+              className="mx-auto mb-2 w-16 h-16"
+            />
+            <p className="text-white mt-3 w-132 font-semibold text-center tracking-wide leading-snug text-xl">
+              🐣 Flappy Favicon?! <br /> Yup, you're about to play Flappy
+              Bird... in the tab icon. No full screen. No fancy graphics. Just
+              pure chaos in 32×32 pixels. Hit Spacebar to flap. Look up — that
+              tiny bird’s counting on you. 😵‍💫 🟢 Start if you dare.
+            </p>
+            <i className="text-yellow-100 block tracking-wider opacity-90 mt-5 animate-pulse">
+              ~Press space key to start!
+            </i>
+          </div>
+        ) : (
+          <div className="text-center text-white">
+            <canvas
+              ref={faviconCanvasRef}
+              width={32}
+              height={32}
+              style={{ display: "none" }}
+            />
 
-          <p className="text-5xl text-yellow-300 mb-3">Score: {score}</p>
+            <p className="text-5xl text-yellow-300 mb-3">Score: {score}</p>
 
-          <p className="text-xl opacity-80">Highscore: {highScore}</p>
+            <p className="text-xl opacity-80">Highscore: {highScore}</p>
 
-          <p className="text-white text-lg mt-5 opacity-60">
-            Keep flapping..........! 🐦
-          </p>
-        </div>
-      )}
-      <canvas
-        ref={canvasRef}
-        width={400}
-        height={600}
-        className="absolute top-0 left-0 opacity-0 pointer-events-none"
-      />
-    </div>
+            <p className="text-white text-lg mt-5 opacity-60">
+              Keep flapping..........! 🐦
+            </p>
+          </div>
+        )}
+        <canvas
+          ref={canvasRef}
+          width={400}
+          height={600}
+          className="absolute top-0 left-0 opacity-0 pointer-events-none"
+        />
+      </div>
+      <footer className="text-center fixed bottom-2 left-0 w-full text-sm mt-10 opacity-70 text-gray-600">
+        🐤 Built by{" "}
+        <a
+          href="https://github.com/yrfean/"
+          className="font-semibold underline hover:text-yellow-300"
+        >
+          yrfan
+        </a>{" "}
+        – because making a whole game inside a tab icon seemed like a perfectly
+        normal idea.
+      </footer>
+    </>
   );
 };
 
